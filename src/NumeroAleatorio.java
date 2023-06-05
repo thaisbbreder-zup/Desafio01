@@ -12,8 +12,8 @@
   ps: se for um número fora do intervalo definido pelo nível: ERRO
 4. Exibir o resultado
 5. Perguntar se deseja jogar novamente.
-        5.1 Se sim, voltar ao início e somar com a pontuação existente.
-        5.2 Se não, finalizar e exibir a pontuação.
+        5.1 Sim: reiniciar e acumular a pontuação.
+        5.2 Não: Exibir a pontuação, os números corretos e os errados;
  */
 
 import java.util.ArrayList;
@@ -40,7 +40,10 @@ public class NumeroAleatorio {
             Random gerador = new Random();
 
             //pergunta o nível
-            System.out.println("\nVamos começar o jogo!" + "\nDigite 1 para FÁCIL " + "\nDigite 2 para MÉDIO " + "\nDigite 3 para DÍFICL");
+            System.out.println("\nVamos começar o jogo!" +
+                    "\nDigite 1 para FÁCIL " +
+                    "\nDigite 2 para MÉDIO " +
+                    "\nDigite 3 para DÍFICL");
             System.out.print("Em qual nível voce quer jogar? ");
             int nivel = entradaDoUsuario.nextInt();
 
@@ -77,7 +80,7 @@ public class NumeroAleatorio {
                 pontuacaoFinal += 10;
                 System.out.println("\nParabéns! Você acertou e acumulou 10 pontos!!!");
                 numCorretos.add(numUsuario);
-                //compara se o número informado é 1 número maior ou menor que o aleatório
+            //compara se o número informado é 1 número maior ou menor que o aleatório
             } else if (numUsuario == numAleatorio + 1 || numUsuario == numAleatorio - 1) {
                 pontuacaoFinal = 5;
                 System.out.println("\nUauuu, passou perto!! Você acumulou 5 pontos!!!");
