@@ -38,6 +38,7 @@ public class NumeroAleatorio {
         List<Integer> respostaUsuario = new ArrayList<>();
         List<Integer> respostaSistema = new ArrayList<>();
         int[] limiteSuperior = new int[]{10, 50, 100};
+        int[] limiteSuperiorRandom = new int[]{11, 51, 101};
 
         //gerador de números aleatórios
         Random gerador = new Random();
@@ -77,13 +78,8 @@ public class NumeroAleatorio {
 
             //gera um número de acordo com o nível
             System.out.print("Número sorteado: ");
-            if (nivel == 1) {
-                numAleatorio = gerador.nextInt(11);
-            } else if (nivel == 2) {
-                numAleatorio = gerador.nextInt(51);
-            } else if (nivel == 3) {
-                numAleatorio = gerador.nextInt(101);
-            }
+            int indice = nivel - 1;
+            numAleatorio = gerador.nextInt(limiteSuperiorRandom[indice]);
             System.out.print(numAleatorio);
             respostaSistema.add(numAleatorio);
 
