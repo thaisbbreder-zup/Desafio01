@@ -40,14 +40,12 @@ public class NumeroAleatorio {
             int nivel;
             boolean entradaNivelInvalido = true;
             do {
-
                 //pergunta o nível
                 System.out.println("\nVamos começar o jogo!" +
                         "\nDigite 1 para FÁCIL " +
                         "\nDigite 2 para MÉDIO " +
                         "\nDigite 3 para DÍFICL");
                 nivel = entradaDoUsuario.nextInt();
-
 
                 if (nivel < 1 || nivel > 3) {
                     entradaNivelInvalido = true;
@@ -61,22 +59,16 @@ public class NumeroAleatorio {
             System.out.print("\nInforme um número: ");
             int numUsuario = entradaDoUsuario.nextInt();
 
-            //gera o numero de acordo com o nivel
+            //gera um número de acordo com o nível
+            System.out.print("Número gerado: ");
             if (nivel == 1) {
-                System.out.print("Número gerado: ");
                 numAleatorio = gerador.nextInt(11);
-                System.out.print(numAleatorio);
             } else if (nivel == 2) {
-                System.out.print("Número gerado: ");
                 numAleatorio = gerador.nextInt(51);
-                System.out.print(numAleatorio);
-
             } else if (nivel == 3) {
-                System.out.println("Número gerado: ");
                 numAleatorio = gerador.nextInt(101);
-                System.out.print(numAleatorio);
-
             }
+            System.out.print(numAleatorio);
 
             // compara se o numero informado pelo usuário é igual ao número aleatório
             if (numUsuario == numAleatorio) {
