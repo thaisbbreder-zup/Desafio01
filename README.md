@@ -1,18 +1,29 @@
-# Desafio 01
+# 🚀 Desafio 01: Adivinhe o Número!
 
-Você deve gerar um número aleatório e comparar com a resposta vinda do usuário.
-- Caso seja o mesmo número:
-  - O usuário ganha 10 pontos. 
-   <br>
-- Caso seja número diferente o programa:
-    - Deve comparar para saber se o número está 1 acima ou 1 abaixo do número sorteado:
-      -   Caso esteja o usuário ganha 5 pontos. 
-      -   Caso não esteja o usuário apenas perde. 
-     
-No fim deverá ser exibida a pontuação do usuário. Tudo via console. 
+### <div align="center">Bem-vindo(a) ao **"Adivinhe o Número"**!
+### <div align="center">__Prepare-se para desafiar o incrível sistema em Java!__
+ 
+<br>
+Eu vou gerar um número secreto de acordo com o nível de dificuldade que você escolher.
+  
+#### Níveis de Dificuldade:
+- **Fácil:** Números de 1 a 10.
+- **Médio:** Números de 1 a 50.
+- **Difícil:** Números de 1 a 100.
 
-__Entrega Mínima:__ O sistema sorteia o número e realiza todas as comparação, no final ele exibe a pontuação correta.<br>
-__Entrega Média:__ O sistema permite jogar mais de uma vez e soma todas as pontuações.<br>
-__Entrega Máxima:__ O sistema permite adicionar nível de dificuldade de alguma forma e exibe, além da pontuação, 
-os números que o usuário errou e acertou.
+Se você conseguir adivinhar o número corretamente, você ganhará **10 pontos**! 👏
 
+Mas não se preocupe se você não acertar em cheio. Se o seu palpite estiver apenas 1 número acima ou 1 número abaixo do número secreto, você ainda ganhará **5 pontos**! 👀
+
+No entanto, se você estiver longe do número sorteado, você perderá. MUAHAHAHHA 😈
+
+👾👾 Está pronto(a) para o desafio? Vamos ver se você tem o talento de um(a) verdadeiro(a) adivinhador(a)! :metal::metal:
+ 
+
+## Como Jogar:
+1. Clone o repositório.
+2. Execute o programa em sua IDE preferida.
+3. Digite o número correspondente ao nível de dificuldade desejado no console.
+4. Digite um número dentro da faixa determinada pelo nível de dificuldade escolhido.
+5. Veja se você acertou ou errou!
+6. No final, será exibido o histórico completo com o número secreto, seus palpites, se você acertou ou errou, e a sua pontuação total.
