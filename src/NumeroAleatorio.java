@@ -31,14 +31,18 @@ public class NumeroAleatorio {
         int numAleatorio = 0;
         int pontuacaoFinal = 0;
         boolean jogarNovamente = true;
-        List<Integer> numCorretos = new ArrayList<>();
-        List<Integer> numIncorretos = new ArrayList<>();
+        List<Integer> respostaUsuario = new ArrayList<>();
+        List<Integer> respostaSistema = new ArrayList<>();
+        int[] limiteSuperior = new int[]{10, 50, 100};
+
         //gerador de números aleatorios
         Random gerador = new Random();
 
         do {
             int nivel;
+            int numUsuario;
             boolean entradaNivelInvalido = true;
+            boolean entradaValorInvalido = true;
             do {
                 //pergunta o nível
                 System.out.println("\nVamos começar o jogo!" +
@@ -56,8 +60,18 @@ public class NumeroAleatorio {
             } while (entradaNivelInvalido);
 
             //pergunta o número
-            System.out.print("\nInforme um número: ");
-            int numUsuario = entradaDoUsuario.nextInt();
+            do {
+                System.out.printf("\nEscolha um número entre 0 e %d: ", limiteSuperior[nivel - 1]);
+                numUsuario = entradaDoUsuario.nextInt();
+
+                if (numUsuario < 0 || numUsuario > limiteSuperior[nivel - 1]) {
+                    System.out.println("----- ERRO: O número escolhido está fora dos limites do nível! -----");
+                    entradaValorInvalido = true;
+                } else {
+                    entradaValorInvalido = false;
+                }
+            } while (entradaValorInvalido);
+            respostaUsuario.add(numUsuario);
 
             //gera um número de acordo com o nível
             System.out.print("Número gerado: ");
@@ -69,21 +83,19 @@ public class NumeroAleatorio {
                 numAleatorio = gerador.nextInt(101);
             }
             System.out.print(numAleatorio);
+            respostaSistema.add(numAleatorio);
 
             // compara se o numero informado pelo usuário é igual ao número aleatório
             if (numUsuario == numAleatorio) {
                 pontuacaoFinal += 10;
                 System.out.println("\nParabéns! Você acertou e acumulou 10 pontos!!!");
-                numCorretos.add(numUsuario);
-                //compara se o número informado é 1 número maior ou menor que o aleatório
+                 //compara se o número informado é 1 número maior ou menor que o aleatório
             } else if (numUsuario == numAleatorio + 1 || numUsuario == numAleatorio - 1) {
                 pontuacaoFinal = 5;
                 System.out.println("\nUauuu, passou perto!! Você acumulou 5 pontos!!!");
-                numIncorretos.add(numUsuario);
-            } else {
+             } else {
                 System.out.println("\nQue pena, você errou e não acumulou pontos =(");
-                numIncorretos.add(numUsuario);
-            }
+             }
 
             System.out.println("\nDeseja jogar novamente? " +
                     "\nDigite 1 para SIM " +
@@ -99,8 +111,8 @@ public class NumeroAleatorio {
         } while (jogarNovamente);
 
         System.out.println("\nFinalizamos o jogo. " +
-                "\nOs números que voce acertou foram: " + numCorretos +
-                "\nOs números que voce errou foram: " + numIncorretos +
+                "\nOs números que voce escolheu foram: " + respostaUsuario +
+                "\nOs números que o sistema escolheu foram: " + respostaSistema +
                 "\nSua pontuação final foi de " + pontuacaoFinal + " pontos!");
     }
 }
