@@ -23,7 +23,7 @@ import java.util.Scanner;
 
 public class NumeroAleatorio {
     public static void main(String[] args) {
-        System.out.println("----------------- ADIVINHE O NÚMERO QUE ESTOU PENSANDO----------------- ");
+        System.out.println("----------------- ADIVINHE O NÚMERO QUE ESTOU PENSANDO ----------------- ");
 
         Scanner entradaDoUsuario = new Scanner(System.in);
 
@@ -46,9 +46,9 @@ public class NumeroAleatorio {
             do {
                 //pergunta o nível
                 System.out.println("\nVamos começar o jogo!" +
-                        "\nDigite 1 para FÁCIL " +
-                        "\nDigite 2 para MÉDIO " +
-                        "\nDigite 3 para DÍFICL");
+                        "\n| Digite 1 para FÁCIL |" +
+                        "\n| Digite 2 para MÉDIO |" +
+                        "\n| Digite 3 para DÍFICIL|");
                 nivel = entradaDoUsuario.nextInt();
 
                 if (nivel < 1 || nivel > 3) {
@@ -74,7 +74,7 @@ public class NumeroAleatorio {
             respostaUsuario.add(numUsuario);
 
             //gera um número de acordo com o nível
-            System.out.print("Número gerado: ");
+            System.out.print("Número sorteado: ");
             if (nivel == 1) {
                 numAleatorio = gerador.nextInt(11);
             } else if (nivel == 2) {
@@ -89,31 +89,34 @@ public class NumeroAleatorio {
             if (numUsuario == numAleatorio) {
                 pontuacaoFinal += 10;
                 System.out.println("\nParabéns! Você acertou e acumulou 10 pontos!!!");
-                 //compara se o número informado é 1 número maior ou menor que o aleatório
+                //compara se o número informado é 1 número maior ou menor que o aleatório
             } else if (numUsuario == numAleatorio + 1 || numUsuario == numAleatorio - 1) {
-                pontuacaoFinal = 5;
+                pontuacaoFinal += 5;
                 System.out.println("\nUauuu, passou perto!! Você acumulou 5 pontos!!!");
-             } else {
+            } else {
                 System.out.println("\nQue pena, você errou e não acumulou pontos =(");
-             }
+            }
 
             System.out.println("\nDeseja jogar novamente? " +
                     "\nDigite 1 para SIM " +
-                    "\nDigite 2 para NÃO");
+                    "\nDigite qualquer número para NÃO");
             int opcao = entradaDoUsuario.nextInt();
 
             if (opcao == 1) {
                 jogarNovamente = true;
             } else {
                 jogarNovamente = false;
-
             }
         } while (jogarNovamente);
 
-        System.out.println("\nFinalizamos o jogo. " +
-                "\nOs números que voce escolheu foram: " + respostaUsuario +
-                "\nOs números que o sistema escolheu foram: " + respostaSistema +
-                "\nSua pontuação final foi de " + pontuacaoFinal + " pontos!");
+        System.out.println("\nFinalizamos o jogo. ");
+        for (int i = 0; i < respostaUsuario.size(); i++) {
+            System.out.printf(" | Número sorteado: %d | Número escolhido: %d | Resultado: %s%n",
+                    respostaSistema.get(i), respostaUsuario.get(i),
+                    respostaSistema.get(i) == respostaUsuario.get(i) ? "Acertou" : "Errou");
+        }
+
+        System.out.println("\nSua pontuação final foi de " + pontuacaoFinal + " pontos!");
     }
 }
 
